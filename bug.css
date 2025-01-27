@@ -1,0 +1,9 @@
+The CSS property `calc()` is used to perform calculations within CSS. However, there's a potential error if you try to use it with percentages that depend on unknown parent container sizes.  For example:
+
+```css
+.element {
+  width: calc(50% + 10px);
+}
+```
+
+If the parent container's width isn't set yet, or is determined dynamically, the calculation will fail, resulting in unexpected width behavior. The `calc()` function will produce unpredictable results and might not render correctly if the values it depends on haven't been computed.
