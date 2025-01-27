@@ -1,0 +1,25 @@
+One solution is to ensure the parent container's size is explicitly defined before applying the `calc()` calculation. Another approach might be to use a JavaScript solution to measure the parent's width and set the child's width accordingly, after the DOM has loaded.
+
+Example (using explicit parent size):
+
+```css
+.parent {
+  width: 500px; /* Explicitly define the parent's width */
+}
+
+.element {
+  width: calc(50% + 10px);
+}
+```
+
+Example (using JavaScript - Note: This requires the parent element to have an ID):
+
+```javascript
+window.addEventListener('load', function() {
+  const parent = document.getElementById('parent');
+  const element = document.getElementById('element');
+  element.style.width = `calc(${parent.offsetWidth * 0.5 + 10}px)`;
+});
+```
+
+This solution fetches the parent's width using Javascript after the DOM has loaded, preventing the calculation error.
